@@ -172,23 +172,23 @@ function gameEngine () {
     
 // }
 
-// Plays the game in the round number prompted 
-function playRound(rounds) {
+// Plays the game in the round number prompted - CURRENTLY COMMENTED OUT
+// function playRound(rounds) {
 
-    playerScore = 0;
-    computerScore = 0;
+//     playerScore = 0;
+//     computerScore = 0;
         
-    for (let i = 0; i < rounds ; i++ ) {
-        playerChoice(); 
-        computerSelection
-        console.log("Round: " + (i+1))
-        gameEngine();
+//     for (let i = 0; i < rounds ; i++ ) {
+//         playerChoice(); 
+//         computerSelection
+//         console.log("Round: " + (i+1))
+//         gameEngine();
         
 
-    }
+//     }
 
-    return console.log("Game Over");
-}
+//     return console.log("Game Over");
+// }
 
 
 // // testing for pure randomness of elements
@@ -197,3 +197,23 @@ function playRound(rounds) {
 let rounds = window.prompt("How many rounds would you like to play? ")
 playRound(rounds);
 
+/* Instructions for adding : 
+In our UI, the player should be able to play the game by clicking on buttons rather than typing their answer in a prompt.
+
+    a) For now, remove the logic that plays exactly five rounds.
+    -- DONE
+
+    b) Create three buttons, one for each selection. Add an event listener to the buttons that call your playRound 
+    function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
+
+    c) Add a div for displaying results and change all of your console.logs into DOM methods.
+
+    d) Display the running score, and announce a winner of the game once one player reaches 5 points.
+
+    e) You will likely have to refactor (rework/rewrite) your original code to make it work for this. 
+    That’s OK! Reworking old code is an important part of a programmer’s life.
+
+    f) Once you’re all done with your UI and made sure everything’s satisfactory, commit your changes to the rps-ui branch.
+
+
+*/
