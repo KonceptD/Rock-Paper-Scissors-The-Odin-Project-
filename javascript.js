@@ -16,31 +16,50 @@
     let computerScore;
     // let over;
 
+const rockBtn = document.getElementById('rockBtn')
+const paperBtn = document.getElementById('paperBtn')
+const scissorsBtn = document.getElementById('scissorsBtn')
+
+rockBtn.addEventListener("click", () => {
+    playerSelection = rock;
+    console.log(playerSelection);
+});
+paperBtn.addEventListener("click", () => {
+    playerSelection = paper;
+    console.log(playerSelection);
+});
+scissorsBtn.addEventListener("click", () => {
+    playerSelection = scissors;
+    console.log(playerSelection);
+});
+
 // Players choice and caters for incorrect input
-function playerChoice(){
-    while (true) {
-        playerSelection = window.prompt("Rock, Paper or Scissors?: ").toLowerCase();
+// function playerChoice(){
+  
+//     // playerSelection = newChoice
          
-        if (playerSelection == rock) {
-            break;
+//     if (this == rockBtn) {
+//         playerSelection = rock;
+//         console.log(playerSelection);
+//         return playerSelection;    
+
             
-        }
-        else if (playerSelection == paper) {
-            break;
+//         }
+//     else if (playerSelection == paper) {
             
-        }
-        else if (playerSelection == scissors) {
-            break;
             
-        }
-        else {
-            window.prompt("Incorrect input. Try again")
-            continue;
-        }
+//         }
+//     else if (playerSelection == scissors) {
+            
+            
+//         }
+//     else {
+//             window.prompt("Incorrect input. Try again")
+            
         
-    }
-return playerSelection;
-}    
+//     }
+//     return playerSelection;
+// }    
 
 // initializes the computers random choice
 function computerPlay() {
@@ -54,118 +73,43 @@ function computerPlay() {
 
 let computerSelection = computerPlay();    
 
-// // to determine when the round ends
-// function roundEngine () {
-//     if (currentRound == rounds) {
-//         over = "over"
-//         return over
-//     } 
-//     else {
-//         let over = "ongoing"
-//         return over 
-//     }
-// }
 
-// determines the winner
 function gameEngine () {
-
-    // playerScore = 0;
-    // computerScore = 0;
-    
-    // while (true) {
 
         
         if (playerSelection == rock && computerSelection == scissors) {
             playerScore++
             console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-            
-            // currentRound++
-            // roundEngine();
-            // if (over == "over") {
-            //     console.log("Game Over")
-            //     break
-            // }
-            // else {
-            //     continue
-            // }
+
         }
         else if (playerSelection == paper && computerSelection == rock) {
             playerScore++
             console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
             
-            // currentRound++
-            // roundEngine();
-            // if (over == "over") {
-            //     console.log("Game Over")
-            //     break
-            // }
-            // else {
-            //     continue
-            // }
         }
         else if (playerSelection == scissors && computerSelection == paper) {
             playerScore++
             console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-            // currentRound++
-            // roundEngine();
-            // if (over == "over") {
-            //     console.log("Game Over")
-            //     break
-            // }
-            // else {
-            //     continue
-            // }
+
         }
         else if (computerSelection == rock && playerSelection == scissors) {
             computerScore++
             console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-            // currentRound++
-            // roundEngine();
-            // if (over == "over") {
-            //     console.log("Game Over")
-            //     break
-            // }
-            // else {
-            //     continue
-            // }
+
         }
         else if (computerSelection == paper && playerSelection == rock) {
             playerScore++
             console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-            // currentRound++
-            // roundEngine();
-            // if (over == "over") {
-            //     console.log("Game Over")
-            //     break
-            // }
-            // else {
-            //     continue
-            // }
+
         }
         else if (computerSelection == scissors && playerSelection == paper) {
             playerScore++
             console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-            // currentRound++
-            // // roundEngine();
-            // // if (over == "over") {
-            // //     console.log("Game Over")
-            // //     break
-            // // }
-            // // else {
-            // //     continue
-            // // }
+
         }
         else {
             console.log("Tie.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-            // currentRound++
-            // roundEngine();
-            // if (over == "over") {
-            //     console.log("Game Over")
-            //     break
-            // }
-            // else {
-            //     continue
-            // }
+
         }
         return;
     }
@@ -205,6 +149,7 @@ In our UI, the player should be able to play the game by clicking on buttons rat
 
     b) Create three buttons, one for each selection. Add an event listener to the buttons that call your playRound 
     function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
+    -- DONE
 
     c) Add a div for displaying results and change all of your console.logs into DOM methods.
 
@@ -213,7 +158,9 @@ In our UI, the player should be able to play the game by clicking on buttons rat
     e) You will likely have to refactor (rework/rewrite) your original code to make it work for this. 
     That’s OK! Reworking old code is an important part of a programmer’s life.
 
-    f) Once you’re all done with your UI and made sure everything’s satisfactory, commit your changes to the rps-ui branch.
+    f) Pretty it up
+
+    g) Once you’re all done with your UI and made sure everything’s satisfactory, commit your changes to the rps-ui branch.
 
 
 */
