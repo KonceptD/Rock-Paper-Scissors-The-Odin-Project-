@@ -4,48 +4,56 @@
       Note: I must commit significant changes more, I got caught up in the rush and did it all one time, leaving a poor trail of what I did
 
       KonceptD(KJ) - 08 July 2022 - 16:25 pm 
+
+      UPDATE 2:  I'm stuck on this program trying to add a UI, I seem to be lost on the logic and am getting frustrated. I'm gonna leave this aside and come back to it another time.
    */
    
-   // assigned strings to variables
-    let rock = "rock"
-    let paper = "paper"
-    let scissors = "scissors"
-    // let currentRound = 0;
-    let playerSelection;
-    let playerScore;
-    let computerScore;
-    let choice;
-    // let over;
+// assigned strings to variables
+let rock = "rock"
+let paper = "paper"
+let scissors = "scissors"
+// let currentRound = 0;
+let playerSelection;
+let playerScore = 0;
+let computerScore = 0;
+let round = 0;
+let choice;
+// let over;
+let computerSelection = computerPlay();    
+
+const divScoreBoard = document.getElementById('scoreboard');
+const divScore = document.createElement('div');
+divScore.classList.add('Score');
+divScore.textContent = 'This is text';
+divScoreBoard.appendChild(divScore);
+// divScore.textContent = playerScore;
+    
 
 const rockBtn = document.getElementById('rockBtn')
-rockBtn.addEventListener("click", () => {choice = rock;})
+rockBtn.addEventListener("click", () => {
+    choice = rock;
+    playerChoice(); 
+    computerSelection;
+    console.log("Round: " + (round++))
+    gameEngine();
+});
 const paperBtn = document.getElementById('paperBtn')
-paperBtn.addEventListener("click", () => {choice = paper;})
+paperBtn.addEventListener("click", () => {
+    choice = paper;
+    playerChoice(); 
+    computerSelection;
+    console.log("Round: " + (round++))
+    gameEngine();
+});
 const scissorsBtn = document.getElementById('scissorsBtn')
-scissorsBtn.addEventListener("click", () => {choice = scissors;})
+scissorsBtn.addEventListener("click", () => {
+    choice = scissors;
+    playerChoice(); 
+    computerSelection;
+    console.log("Round: " + (round++))
+    gameEngine();
+});
 
-function playerChoose () {
-    
-     
-        if (choice == rock) {
-            playerSelection = rock;
-            return playerSelection;
-            
-
-        }
-        else if (choice == paper) {
-            playerSelection = paper;
-            return playerSelection;
-          
-
-        }
-        else if (choice == scissors) {
-            playerSelection = scissors;
-            return playerSelection;
-          
-
-        }
-}
 
 function playerChoice(choice) {
     
@@ -67,18 +75,6 @@ function playerChoice(choice) {
 
 }
 
-// paperBtn.addEventListener("click", (e))) {
-//     playerSelection = paper;
-//     console.log(playerSelection);
-//     return playerSelection;
-
-const divScoreBoard = document.querySelector('#scoreboard');
-const divScore = document.createElement('div');
-divScore.classList.add('Score')
-// divScore.textContent = playerScore;
-// divScoreBoard.appendChild(divScore);
-
-
 
 // initializes the computers random choice
 function computerPlay() {
@@ -90,89 +86,63 @@ function computerPlay() {
         return final
     }
 
-let computerSelection = computerPlay();    
 
 
-function gameEngine () {
 
-        
-        if (playerSelection == rock && computerSelection == scissors) {
+function gameEngine () {      
+if (playerSelection == rock && computerSelection == scissors) {
             playerScore++
-            divScore.textContent = "Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
-            divScoreBoard.appendChild(divScore);
-            // console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-
-        }
-        else if (playerSelection == paper && computerSelection == rock) {
+            divScore.textContent = "Player wins. " + "Player: " + playerScore + " Computer: " + computerScore;
+            return;
+             }
+else if (playerSelection == paper && computerSelection == rock) {
             playerScore++
-            divScore.textContent = "Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
-            divScoreBoard.appendChild(divScore);
-            // console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-            
-        }
-        else if (playerSelection == scissors && computerSelection == paper) {
+            divScore.textContent = "Player wins. " + "Player: " + playerScore + " Computer: " + computerScore;
+            return;
+            }
+else if (playerSelection == scissors && computerSelection == paper) {
             playerScore++
-            divScore.textContent = "Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
-            divScoreBoard.appendChild(divScore);
-            // console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-
-        }
-        else if (computerSelection == rock && playerSelection == scissors) {
+            divScore.textContent = "Player wins. " + "Player: " + playerScore + " Computer: " + computerScore;
+            return;
+             }
+else if (computerSelection == rock && playerSelection == scissors) {
             computerScore++
-            divScore.textContent = "Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
-            divScoreBoard.appendChild(divScore);
-            // console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-
-        }
-        else if (computerSelection == paper && playerSelection == rock) {
+            divScore.textContent = "Computer wins. " + "Player: " + playerScore + " Computer: " + computerScore;
+            return;
+            }
+else if (computerSelection == paper && playerSelection == rock) {
             playerScore++
-            divScore.textContent = "Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
-            divScoreBoard.appendChild(divScore);
-            // console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-
-        }
-        else if (computerSelection == scissors && playerSelection == paper) {
+            divScore.textContent = "Computer wins. " + "Player: " + playerScore + " Computer: " + computerScore;
+            return;
+            }
+else if (computerSelection == scissors && playerSelection == paper) {
             playerScore++
-            divScore.textContent = "Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
-            divScoreBoard.appendChild(divScore);
-            // console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-
-        }
-        else {
-            divScore.textContent = "Tie.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
-            divScoreBoard.appendChild(divScore);
+            divScore.textContent = "Computer wins. " + "Player: " + playerScore + " Computer: " + computerScore;
+            return;
+            }
+else    {
+            divScore.textContent = "Tie. " + "Player: " + playerScore + " Computer: " + computerScore;
+            return; 
             // console.log("Tie.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
-
         }
-        return;
-    }
     
-// }
+}
 
 //* Plays the game in the round number prompted 
 function playRound() {
 
-    while (true) {
-        playerScore = 0;
-        computerScore = 0;
-        let round = 0;
-        playerChoose();
+        // playerChoose();
         playerChoice(); 
         computerSelection;
         console.log("Round: " + (round++))
         gameEngine();
-    }
-        
-
-    
-
-    
+    return;
 }
 
 
 // // testing for pure randomness of elements
 // console.log(computerPlay())
-playRound();
+
 
 /* Instructions for adding : 
 In our UI, the player should be able to play the game by clicking on buttons rather than typing their answer in a prompt.
