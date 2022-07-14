@@ -1,4 +1,4 @@
-   /* FINAL UPDATE: Took the long route around and added redundant code. Debugged and managed to reduce redundancy and got a perfectly working game!
+   /* UPDATE: Took the long route around and added redundant code. Debugged and managed to reduce redundancy and got a perfectly working game!
       I'm leaving my commented-out code here as reference for future reviewing down the line to see where I went wrong
 
       Note: I must commit significant changes more, I got caught up in the rush and did it all one time, leaving a poor trail of what I did
@@ -14,52 +14,71 @@
     let playerSelection;
     let playerScore;
     let computerScore;
+    let choice;
     // let over;
 
 const rockBtn = document.getElementById('rockBtn')
+rockBtn.addEventListener("click", () => {choice = rock;})
 const paperBtn = document.getElementById('paperBtn')
+paperBtn.addEventListener("click", () => {choice = paper;})
 const scissorsBtn = document.getElementById('scissorsBtn')
+scissorsBtn.addEventListener("click", () => {choice = scissors;})
 
-rockBtn.addEventListener("click", () => {
-    playerSelection = rock;
-    console.log(playerSelection);
-});
-paperBtn.addEventListener("click", () => {
-    playerSelection = paper;
-    console.log(playerSelection);
-});
-scissorsBtn.addEventListener("click", () => {
-    playerSelection = scissors;
-    console.log(playerSelection);
-});
+function playerChoose () {
+    
+     
+        if (choice == rock) {
+            playerSelection = rock;
+            return playerSelection;
+            
 
-// Players choice and caters for incorrect input
-// function playerChoice(){
-  
-//     // playerSelection = newChoice
-         
-//     if (this == rockBtn) {
-//         playerSelection = rock;
-//         console.log(playerSelection);
-//         return playerSelection;    
+        }
+        else if (choice == paper) {
+            playerSelection = paper;
+            return playerSelection;
+          
 
-            
-//         }
-//     else if (playerSelection == paper) {
-            
-            
-//         }
-//     else if (playerSelection == scissors) {
-            
-            
-//         }
-//     else {
-//             window.prompt("Incorrect input. Try again")
-            
-        
-//     }
+        }
+        else if (choice == scissors) {
+            playerSelection = scissors;
+            return playerSelection;
+          
+
+        }
+}
+
+function playerChoice(choice) {
+    
+    if (choice == 'rock') {
+        playerSelection = rock;
+        console.log(playerSelection);
+        return playerSelection;
+    }
+    else if (choice == paper) {
+        playerSelection = paper;
+        console.log(playerSelection);
+        return playerSelection;
+    }
+    else if (choice == scissors) {
+        playerSelection = scissors;
+        console.log(playerSelection);
+        return playerSelection;
+    }
+
+}
+
+// paperBtn.addEventListener("click", (e))) {
+//     playerSelection = paper;
+//     console.log(playerSelection);
 //     return playerSelection;
-// }    
+
+const divScoreBoard = document.querySelector('#scoreboard');
+const divScore = document.createElement('div');
+divScore.classList.add('Score')
+// divScore.textContent = playerScore;
+// divScoreBoard.appendChild(divScore);
+
+
 
 // initializes the computers random choice
 function computerPlay() {
@@ -79,36 +98,50 @@ function gameEngine () {
         
         if (playerSelection == rock && computerSelection == scissors) {
             playerScore++
-            console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
+            divScore.textContent = "Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
+            divScoreBoard.appendChild(divScore);
+            // console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
 
         }
         else if (playerSelection == paper && computerSelection == rock) {
             playerScore++
-            console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
+            divScore.textContent = "Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
+            divScoreBoard.appendChild(divScore);
+            // console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
             
         }
         else if (playerSelection == scissors && computerSelection == paper) {
             playerScore++
-            console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
+            divScore.textContent = "Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
+            divScoreBoard.appendChild(divScore);
+            // console.log("Player wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
 
         }
         else if (computerSelection == rock && playerSelection == scissors) {
             computerScore++
-            console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
+            divScore.textContent = "Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
+            divScoreBoard.appendChild(divScore);
+            // console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
 
         }
         else if (computerSelection == paper && playerSelection == rock) {
             playerScore++
-            console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
+            divScore.textContent = "Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
+            divScoreBoard.appendChild(divScore);
+            // console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
 
         }
         else if (computerSelection == scissors && playerSelection == paper) {
             playerScore++
-            console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
+            divScore.textContent = "Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
+            divScoreBoard.appendChild(divScore);
+            // console.log("Computer wins.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
 
         }
         else {
-            console.log("Tie.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
+            divScore.textContent = "Tie.\n" + "Player: " + playerScore + "\nComputer: " + computerScore;
+            divScoreBoard.appendChild(divScore);
+            // console.log("Tie.\n" + "Player: " + playerScore + "\nComputer: " + computerScore)
 
         }
         return;
@@ -116,30 +149,30 @@ function gameEngine () {
     
 // }
 
-// Plays the game in the round number prompted - CURRENTLY COMMENTED OUT
-// function playRound(rounds) {
+//* Plays the game in the round number prompted 
+function playRound() {
 
-//     playerScore = 0;
-//     computerScore = 0;
+    while (true) {
+        playerScore = 0;
+        computerScore = 0;
+        let round = 0;
+        playerChoose();
+        playerChoice(); 
+        computerSelection;
+        console.log("Round: " + (round++))
+        gameEngine();
+    }
         
-//     for (let i = 0; i < rounds ; i++ ) {
-//         playerChoice(); 
-//         computerSelection
-//         console.log("Round: " + (i+1))
-//         gameEngine();
-        
 
-//     }
+    
 
-//     return console.log("Game Over");
-// }
+    
+}
 
 
 // // testing for pure randomness of elements
 // console.log(computerPlay())
-
-let rounds = window.prompt("How many rounds would you like to play? ")
-playRound(rounds);
+playRound();
 
 /* Instructions for adding : 
 In our UI, the player should be able to play the game by clicking on buttons rather than typing their answer in a prompt.
@@ -152,6 +185,7 @@ In our UI, the player should be able to play the game by clicking on buttons rat
     -- DONE
 
     c) Add a div for displaying results and change all of your console.logs into DOM methods.
+    -- DONE
 
     d) Display the running score, and announce a winner of the game once one player reaches 5 points.
 
